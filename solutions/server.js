@@ -1,4 +1,6 @@
+
 // SERVER-SIDE JAVASCRIPT
+// run npm install to install all required packages before starting server
 
 var express = require("express");
 var app = express();
