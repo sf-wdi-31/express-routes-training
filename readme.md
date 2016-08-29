@@ -34,19 +34,20 @@ Build a route that allows a user to guess a number through query parameters (for
 Build another route at `/pick-a-number` that allows a user to post a new target number for the guessing game.  **Hint:** this should assume the new number comes through from a form on the front end where one field is named `newNumber`.
 
 
-### Building Cities
+### Art Gallery
 
-1. Create a `cities` array in the server code.
+1. Create an `artworks` array in the server code.  Each artwork will be an object with a `title` key, an `artist` key, and a `description` key.
 
-2. Write a route that returns all of the cities as JSON.
+2. Write a route that returns all of the artworks as JSON.
 
-3. Write a route that allows you to add a new city to the list of cities. Assume the following structure for the client-side city form:
+3. Write a route that allows you to add a new artwork to the list of artworks. Use the following structure for the client-side artwork form:
 
 ```html
 <body>
-  <form>
-    <input id="cityName" name="name" type="text" />
-    <input id="cityDesc" name="description" type="text" />
+  <form id="new-artwork-form">
+    <input id="title" name="title" placeholder="Title" type="text" />
+    <input id="desc" name="description" placeholder="Description" type="text" />
+    <input id="artist" name="artist" placeholder="Artist" type="text" />
     <input type="submit" />
   </form>
 </body>
