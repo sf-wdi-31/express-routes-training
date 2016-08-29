@@ -1,13 +1,34 @@
+// SERVER-SIDE JAVASCRIPT
+
 var express = require("express");
 var app = express();
+
+
+// MIDDLEWARE
+app.use(express.static('public'));
 
 var bodyParser = require("body-parser");
 app.use(bodyParser.urlencoded({ extended: false }));
 
+// Allow CORS:
+// not necessary since we'll be making requests from a js file
+  // that we are also serving (as static assets in public)
+// app.use(function(request, response, next) {
+//   response.header("Access-Control-Allow-Origin", "*");
+//   response.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+//   next();
+// });
+
+// ROUTES
+// define a root route: localhost:3000/
+app.get('/', function (request, response) {
+  response.sendFile('views/index.html' , { root : __dirname});
+});
+
 // Pick A Color
-app.get("/color/:choice", function(req, res){
+app.get("/color/:choice", function(request, response){
   var choice = req.params.choice;
-  res.send("Your color is: " + choice);
+  response.send("Your color is: " + choice);
 });
 
 // Which Taco?
@@ -17,63 +38,66 @@ var tacos = [
                 "Super Taco"
             ];
 
-app.get("/tacos/:i", function(req, res){
+app.get("/tacos/:i", function(request, response){
   var index = req.params.i;
   var selection = tacos[i] || "Sorry, that's not a taco option";
-  res.json( selection );
+  response.json( selection );
 });
 
 
 // The Number Guessing Game
 var targetNumber = 7;
 
-app.get("/pick-a-number", function(req, res){
+app.get("/pick-a-number", function(request, response){
   var num = req.query.num;
   if (num === targetNumber){
-    res.send("Nailed it!");
+    response.send("Nailed it!");
   } else if (num > targetNumber){
-    res.send("Too High!");
+    response.send("Too High!");
   } else {
-    res.send("Too Low");
+    response.send("Too Low");
   }
 });
 
-app.post("/pick-a-number", function(req, res){
+app.post("/pick-a-number", function(request, response){
   targetNumber = req.body.newNumber;
-  res.status(200).send("Number updated successfully!");
+  response.status(200).send("Number updated successfully!");
 });
 
 
 // Calculator
-app.get("/add", function(req, res){
+app.get("/add", function(request, response){
   var x = req.query.x;
   var y = req.query.y;
   var total = x+y;
-  res.send( total );
+  response.send( total );
 });
 
-app.get("/multiply", function(req, res){
+app.get("/multiply", function(request, response){
   var x = req.query.x;
   var y = req.query.y;
   var total = x*y;
-  res.send( total );
+  response.send( total );
 });
 
-// Building Cities
-var cities = [];
+// Gallery
+var artworks = [];
 
-app.get("/cities", function(req, res){
-  res.json(cities);
+app.get("/artworks", function(request, response){
+  response.json(artworks);
 });
 
-app.post("/cities", function(req, res){
-  var newCity = {
-    name: req.body.name,
-    description: req.body.description
+app.post("/artworks", function(request, response){
+  var newArtwork = {
+    name: req.body.title,
+    description: req.body.description,
+    artist: req.body.artist
   };
-  cities.push(newCity);
+  artworks.push(newArtwork);
 });
 
+
+// SERVER START
 var port = 3000;
 app.listen(port, function(){
   console.log("Server Running at localhost:3000/")
