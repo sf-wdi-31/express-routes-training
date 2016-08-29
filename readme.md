@@ -58,4 +58,3 @@ var tacos = [
 </body>
 ```
 
-###Deliverables
