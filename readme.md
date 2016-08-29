@@ -1,5 +1,11 @@
 #Training: Express Routing Practice
 
+### Deliverable
+
+1. When you wrap up work, edit this README to include your name, a link to the original repository, and a 3-5 sentence reflection on completing this assignment at the top of the document. 
+
+1. Push your updates to GitHub and add a link to the repo to the "My Work" section of your website!
+
 ### Pick A Color
 Create a route that responds with "You picked: blue" or "You picked: green" depending on the path. For instance, if I visit `localhost:3000/pick-a-color/orange`, I should see the name of the color I chose (orange) as the response.
 
@@ -19,7 +25,11 @@ var tacos = [
 
 ### The Number Guessing Game
 
-Build a route that allows a user to guess a number through query parameters (for example, `/pickanumber?number=10`).  The route should check the user's number against some target number variable stored in the server code. When the user navigates to this route in the browser, the server should respond with either "Too High", "Too Low" or "Nailed it!" For example, if the target number is 7, then a request to  `/pickanumber?number=10` should trigger a response of `'Too High'`.
+1. Build a route that allows a user to guess a number through query parameters (for example, `/pickanumber?number=10`).  The route should check the user's number against some target number variable stored in the server code. When the user navigates to this route in the browser, the server should respond with either "Too High", "Too Low" or "Nailed it!" For example, if the target number is 7, then a request to  `/pickanumber?number=10` should trigger a response of `'Too High'`.
+
+
+
+1. Build another route at `/pick-a-number` that allows a user to post a new target number for the guessing game.  **Hint:** this should assume the new number comes through from a form on the front end where one field is named `newNumber`.
 
 
 ### Query Parameter Calculator App
@@ -28,10 +38,6 @@ Build a route that allows a user to guess a number through query parameters (for
 
 2.  Create an `/add` route, similar to above.
 
-
-### The Number Guessing Game (Part 2)
-
-Build another route at `/pick-a-number` that allows a user to post a new target number for the guessing game.  **Hint:** this should assume the new number comes through from a form on the front end where one field is named `newNumber`.
 
 
 ### Building Cities
@@ -51,3 +57,5 @@ Build another route at `/pick-a-number` that allows a user to post a new target 
   </form>
 </body>
 ```
+
+###Deliverables
