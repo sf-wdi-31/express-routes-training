@@ -1,0 +1,25 @@
+{
+  "name": "express-dynamic-routes-params",
+  "version": "1.0.0",
+  "description": "[express, query parameters, route/url parameters]",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "author": "GA WDI SF",
+  "license": "MIT",
+  "dependencies": {
+    "body-parser": "^1.15.2",
+    "express": "^4.14.0"
+  },
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/sf-wdi-31/express-routes-training.git"
+  },
+  "bugs": {
+    "url": "https://github.com/sf-wdi-31/express-routes-training/issues"
+  },
+  "homepage": "https://github.com/sf-wdi-31/express-routes-training#readme"
+}
