@@ -1,21 +1,37 @@
 $(document).ready(function(){
-  console.log('hi');
-  $('#new-artwork-form').on('submit', function(event){
+  $('#guess-number-form').on('submit', function(event){
     event.preventDefault();
     $.ajax({
-      url: '/artworks',
-      method: 'POST',
-      data: $('#new-artwork-form').serialize(),
-      success: handleNewArtworkSuccess,
-      error: handleNewArtworkError
+      url: '/pick-a-number',
+      method: 'GET',
+      data: $('#guess-number-form').serialize(),
+      success: handleGuessSuccess,
+      error: handleError
     });
   });
 
-  function handleNewArtworkSuccess(newArtworkResponse){
-    console.log(newArtworkResponse);
+  function handleGuessSuccess(guessResponse){
+    console.log(guessResponse);
+    $('#high-low-correct').html(guessResponse);
   }
 
-  function handleNewArtworkError(jqXHR, status, error){
+  $('#target-number-form').on('submit', function(event){
+    event.preventDefault();
+    $.ajax({
+      url: '/pick-a-number',
+      method: 'POST',
+      data: $('#target-number-form').serialize(),
+      success: handleTargetChangeSuccess,
+      error: handleError
+    });
+  });
+
+  function handleTargetChangeSuccess(targetResponse){
+    console.log(targetResponse);
+    $('#target-number-form')[0].reset();
+  }
+
+  function handleError(jqXHR, status, error){
     console.log('error:', error);
   }
 });
