@@ -1,3 +1,5 @@
+// run npm install to install all required packages before running this
+
 var express = require("express");
 var app = express();
 
